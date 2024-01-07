@@ -1,8 +1,11 @@
-.container
+.name-container
 {
-    /*border: 3px solid green;*/
+    border: 3px solid green;
     text-align: center;
+    justify-content: center;
     padding-top: 20px;
+    display:flex
+
 }
 
 .test-name
@@ -10,4 +13,9 @@
     font-size: xx-large;
     font-family: sans-serif;
     letter-spacing: 2px;
+}
+
+.questions-container
+{
+    text-align: center;
 }

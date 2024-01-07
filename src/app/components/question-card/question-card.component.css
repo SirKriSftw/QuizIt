@@ -1,0 +1,12 @@
+.questions-container
+{
+    /*border: 3px solid rgb(60,100,159);*/
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 5px;
+}
+
+mat-panel-title {
+    justify-content: center !important;
+}

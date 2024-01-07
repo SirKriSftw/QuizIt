@@ -29,7 +29,7 @@ export class NewQuizComponent implements OnInit {
   {
     /* FOR later check quiz of same name does not exist */
     console.log(name);
-    this.router.navigateByUrl('/make/' + name);
+    this.router.navigateByUrl('/test/' + name);
   }
 
   getErrorMessage() {
