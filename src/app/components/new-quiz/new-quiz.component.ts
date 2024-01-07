@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-quiz',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewQuizComponent implements OnInit {
 
-  constructor() { }
+  router:any;
 
-  ngOnInit(): void {
+  public name: string = "";
+  nameFormControl = new FormControl('', [Validators.required]);
+  isValid: boolean = false;
+  
+  constructor(private route:Router) 
+  { 
+    this.router = route;
   }
 
+  ngOnInit(): void 
+  {
+
+  }
+
+  createQuiz(name:any)
+  {
+    /* FOR later check quiz of same name does not exist */
+    console.log(name);
+    this.router.navigateByUrl('/make/' + name);
+  }
+
+  getErrorMessage() {
+    return 'You must enter a value';
+  }
 }
