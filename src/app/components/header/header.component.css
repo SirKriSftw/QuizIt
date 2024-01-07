@@ -1,0 +1,17 @@
+.header-container
+{
+    width: 100%;
+    /*border: 3px solid green;*/
+    text-align: center;
+    background-color: rgb(60,100,159);
+    padding-top: 10px;
+}
+
+.header
+{
+    /*border: 3px solid red;*/
+    font-size: xx-large;
+    font-family: serif;
+    letter-spacing: 5px;
+    color:white;
+}
