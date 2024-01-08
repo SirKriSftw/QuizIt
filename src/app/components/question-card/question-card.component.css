@@ -7,13 +7,11 @@
     padding-bottom: 5px;
 }
 
-mat-panel-title {
-    justify-content: center !important;
-}
 
 .question-inside
 {
     display:block;
+    text-align: left;
 }
 
 .question-choices

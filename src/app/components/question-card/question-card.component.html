@@ -1,15 +1,14 @@
 <div class = "questions-container">
-    <mat-accordion>
         <mat-expansion-panel hideToggle>
           <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title>      
+              {{questionCard.id}}        
               {{questionCard.question}}
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <div class = "question-inside">
+          <div class = "question-inside" >
             <p class = "question-choices" *ngFor = "let c of questionCard.choices">{{c}}</p>
             <p class = "question-answer">Answer: <span class = "spoiler">{{questionCard.answer}}</span></p>
           </div>
         </mat-expansion-panel>
-      </mat-accordion>
 </div>

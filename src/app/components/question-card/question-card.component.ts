@@ -8,10 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class QuestionCardComponent implements OnInit {
 
   @Input() questionCard:any;
-  
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    console.log(this.questionCard)
   }
 
 }
