@@ -11,7 +11,7 @@ const routes: Routes =
   {path:'', redirectTo: 'home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'new', component:NewQuizComponent},
-  {path:'make/:test', component:MakeQuestionsComponent},
+  {path:'test/:test', component:MakeQuestionsComponent},
   {path:'load', component:LoadQuizComponent},
 ];
 

@@ -9,10 +9,13 @@ import { ActivatedRoute, ParamMap } from '@angular/router'
 export class MakeQuestionsComponent implements OnInit {
 
   test: string = "";
+  questions:any;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void 
   {
+    this.questions = [{id:1, question:"test", choices:["a","b","c","d"], answer:"test"}]
     this.test = this.route.snapshot.params['test'];
   }
 

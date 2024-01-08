@@ -10,3 +10,31 @@
 mat-panel-title {
     justify-content: center !important;
 }
+
+.question-inside
+{
+    display:block;
+}
+
+.question-choices
+{
+    /*border: solid 3px red;*/
+}
+
+.question-answer
+{
+    /*border: solid 3px green;*/
+}
+
+.spoiler
+{
+    background-color: gray;
+    color: transparent;
+    user-select: none;
+}
+  
+.spoiler:hover
+{
+    background-color: inherit;
+    color: inherit;
+}
