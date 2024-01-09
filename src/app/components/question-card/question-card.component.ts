@@ -8,6 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class QuestionCardComponent implements OnInit {
 
   @Input() questionCard:any;
+  editing:boolean = true;
+  hasChoices:boolean = false;
+  choiceCount:number = 0;
 
   constructor() { }
 
@@ -16,4 +19,33 @@ export class QuestionCardComponent implements OnInit {
     console.log(this.questionCard)
   }
 
+  onRightClick()
+  {
+    event?.preventDefault();
+    this.editing = !this.editing;
+  }
+
+  addChoice()
+  {
+    this.questionCard.choices.push({value: "",isCorrect: false});
+    console.log(this.questionCard.choices); 
+    this.choiceCount++;
+    this.hasChoices = true;
+  }
+
+  removeChoice(choice:any)
+  {
+    console.log(choice);
+    this.choiceCount--;
+    if(this.choiceCount == 0)
+    {
+      this.hasChoices = false;
+    }
+    this.questionCard.choices.splice(choice, 1);
+  }
+
+  toggleChoice(choice:any)
+  {
+    this.questionCard.choices[choice].isCorrect = !this.questionCard.choices[choice].isCorrect;
+  }
 }

@@ -1,14 +1,30 @@
 <div class = "questions-container">
-        <mat-expansion-panel hideToggle>
+        <mat-expansion-panel hideToggle (contextmenu) = "onRightClick()" [expanded]="editing" [disabled]="editing">
           <mat-expansion-panel-header>
-            <mat-panel-title>      
+            <mat-panel-title *ngIf = "!editing">      
               {{questionCard.id}}        
               {{questionCard.question}}
             </mat-panel-title>
+            <mat-panel-title *ngIf = "editing">      
+              <input type = "text">
+            </mat-panel-title>
           </mat-expansion-panel-header>
-          <div class = "question-inside" >
-            <p class = "question-choices" *ngFor = "let c of questionCard.choices">{{c}}</p>
-            <p class = "question-answer">Answer: <span class = "spoiler">{{questionCard.answer}}</span></p>
+          <div class = "question-inside">
+            <span *ngIf = "!editing"><p class = "question-choices" *ngFor = "let c of questionCard.choices">{{c}}</p></span>
+            <p class = "question-answer" *ngIf = "!editing">Answer: <span class = "spoiler" *ngIf = "!editing">{{questionCard.answer}}</span></p> 
+            
+            <form class = "edit-form" *ngIf = "editing">
+                <p class = "edit-item" *ngFor = "let c of questionCard.choices; index as i">
+                  <button class = "remove-button"  mat-icon-button (click) = "removeChoice(i)"><mat-icon class = "remove-icon">remove_circle</mat-icon></button>
+                  <input class ="edit-input" type="text">
+                  <button class = "correct-button"  mat-icon-button (click) = "toggleChoice(i)">
+                    <mat-icon class = "correct-icon-off" *ngIf = "!c.isCorrect">check_circle</mat-icon>
+                    <mat-icon class = "correct-icon-on" *ngIf = "c.isCorrect">check_circle</mat-icon>
+                  </button>                  
+                </p>
+            </form>
+            <button class = "add-button"  mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
+            <p class = "question-answer" *ngIf = "editing">Answer: <input type = "text" *ngIf = "editing && !hasChoices"></p>
           </div>
         </mat-expansion-panel>
 </div>

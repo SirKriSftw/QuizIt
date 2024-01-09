@@ -7,21 +7,10 @@
     padding-bottom: 5px;
 }
 
-
 .question-inside
 {
     display:block;
     text-align: left;
-}
-
-.question-choices
-{
-    /*border: solid 3px red;*/
-}
-
-.question-answer
-{
-    /*border: solid 3px green;*/
 }
 
 .spoiler
@@ -35,4 +24,33 @@
 {
     background-color: inherit;
     color: inherit;
+}
+
+.edit-item
+{
+    justify-content: left;
+    display:block;
+    
+}
+
+.remove-icon
+{
+    color:red;
+}
+
+.correct-icon-off
+{
+    color:grey;
+}
+
+.correct-icon-on
+{
+    color:lime;
+}
+
+.add-button
+{
+    margin-top: -50px;
+    margin-left: 75px;
+    margin-bottom: 10px;
 }
