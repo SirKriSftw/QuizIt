@@ -4,8 +4,8 @@
             <mat-panel-title *ngIf = "!editing">             
               {{questionCard.question}}
             </mat-panel-title>
-            <mat-panel-title *ngIf = "editing">      
-              <input #question type = "text" value = {{questionCard.question}} (keyup.enter) = "updateQuestion(question.value)" (blur) = "updateQuestion(question.value)">
+            <mat-panel-title *ngIf = "editing" (keydown.Space)="$event.stopPropagation()">      
+              <input #question  value = {{questionCard.question}} type = "text" (keyup.enter) = "updateQuestion(question.value)" (blur) = "updateQuestion(question.value)">
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class = "question-inside">
@@ -28,9 +28,10 @@
                     <mat-icon class = "correct-icon-on" *ngIf = "c.isCorrect">check_circle</mat-icon>
                   </button>                  
                 </p>
+                <button class = "add-button"  mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
+                <p class = "question-answer" >Answer: <input #answer type = "text" *ngIf = "!hasChoices" (keyup.enter) = "updateAnswer(answer.value)" (blur) = "updateAnswer(answer.value)"></p>
             </form>
-            <button class = "add-button"  *ngIf = "editing" mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
-            <p class = "question-answer" *ngIf = "editing">Answer: <input #answer type = "text" *ngIf = "editing && !hasChoices" (keyup.enter) = "updateAnswer(answer.value)" (blur) = "updateAnswer(answer.value)"></p>
+           
           </div>
         </mat-expansion-panel>
 </div>

@@ -28,6 +28,7 @@ export class QuestionCardComponent implements OnInit {
 
   updateQuestion(value:any)
   {
+    console.log(value);
     this.questionCard.question = value;
   }
 
