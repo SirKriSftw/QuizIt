@@ -26,10 +26,20 @@ export class QuestionCardComponent implements OnInit {
     this.editing = !this.editing;
   }
 
+  updateQuestion(value:any)
+  {
+    this.questionCard.question = value;
+  }
+
   updateChoice(value:any, choice:any)
   {
     console.log(choice + " " + value);
     this.questionCard.choices[choice].value = value;
+  }
+
+  updateAnswer(value:any)
+  {
+    this.questionCard.answer = value;
   }
 
   addChoice()

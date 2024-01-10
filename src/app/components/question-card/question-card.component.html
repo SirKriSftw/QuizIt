@@ -1,12 +1,11 @@
 <div class = "questions-container">
         <mat-expansion-panel hideToggle (contextmenu) = "onRightClick()" [expanded]="editing" [disabled]="editing">
           <mat-expansion-panel-header>
-            <mat-panel-title *ngIf = "!editing">      
-              {{questionCard.id}}        
+            <mat-panel-title *ngIf = "!editing">             
               {{questionCard.question}}
             </mat-panel-title>
             <mat-panel-title *ngIf = "editing">      
-              <input type = "text">
+              <input #question type = "text" value = {{questionCard.question}} (keyup.enter) = "updateQuestion(question.value)" (blur) = "updateQuestion(question.value)">
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class = "question-inside">
@@ -31,7 +30,7 @@
                 </p>
             </form>
             <button class = "add-button"  *ngIf = "editing" mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
-            <p class = "question-answer" *ngIf = "editing">Answer: <input type = "text" *ngIf = "editing && !hasChoices"></p>
+            <p class = "question-answer" *ngIf = "editing">Answer: <input #answer type = "text" *ngIf = "editing && !hasChoices" (keyup.enter) = "updateAnswer(answer.value)" (blur) = "updateAnswer(answer.value)"></p>
           </div>
         </mat-expansion-panel>
 </div>
