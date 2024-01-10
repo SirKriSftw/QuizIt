@@ -29,7 +29,7 @@
                   </button>                  
                 </p>
                 <button class = "add-button"  mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
-                <p class = "question-answer" >Answer: <input #answer type = "text" *ngIf = "!hasChoices" (keyup.enter) = "updateAnswer(answer.value)" (blur) = "updateAnswer(answer.value)"></p>
+                <p class = "question-answer" >Answer: <input #answer type = "text" value = {{questionCard.answer}} *ngIf = "!hasChoices" (keyup.enter) = "updateAnswer(answer.value)" (blur) = "updateAnswer(answer.value)"></p>
             </form>
            
           </div>
