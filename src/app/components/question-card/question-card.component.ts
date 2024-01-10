@@ -11,6 +11,7 @@ export class QuestionCardComponent implements OnInit {
   editing:boolean = true;
   hasChoices:boolean = false;
   choiceCount:number = 0;
+  answers:any = [];
 
   constructor() { }
 
@@ -23,6 +24,12 @@ export class QuestionCardComponent implements OnInit {
   {
     event?.preventDefault();
     this.editing = !this.editing;
+  }
+
+  updateChoice(value:any, choice:any)
+  {
+    console.log(choice + " " + value);
+    this.questionCard.choices[choice].value = value;
   }
 
   addChoice()
@@ -47,5 +54,9 @@ export class QuestionCardComponent implements OnInit {
   toggleChoice(choice:any)
   {
     this.questionCard.choices[choice].isCorrect = !this.questionCard.choices[choice].isCorrect;
+    if(this.questionCard.choices[choice].isCorrect)
+    {
+      this.answers.push(this.questionCard.choices[choice]);
+    }
   }
 }

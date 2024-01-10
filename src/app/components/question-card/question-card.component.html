@@ -10,20 +10,27 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class = "question-inside">
-            <span *ngIf = "!editing"><p class = "question-choices" *ngFor = "let c of questionCard.choices">{{c}}</p></span>
-            <p class = "question-answer" *ngIf = "!editing">Answer: <span class = "spoiler" *ngIf = "!editing">{{questionCard.answer}}</span></p> 
+            <span *ngIf = "!editing"><p class = "question-choices" *ngFor = "let c of questionCard.choices">{{c.value}}</p></span>
+            <p class = "question-answer" *ngIf = "!editing">Answer: 
+              <span class = "spoiler" *ngIf = "!editing && !hasChoices">{{questionCard.answer}}</span>
+              <span class = "spoiler" *ngIf = "!editing && hasChoices">
+                <span *ngFor = "let c of questionCard.choices">
+                  <span *ngIf = "c.isCorrect"> {{c.value}}, </span>
+                </span>
+              </span>
+            </p> 
             
             <form class = "edit-form" *ngIf = "editing">
                 <p class = "edit-item" *ngFor = "let c of questionCard.choices; index as i">
                   <button class = "remove-button"  mat-icon-button (click) = "removeChoice(i)"><mat-icon class = "remove-icon">remove_circle</mat-icon></button>
-                  <input class ="edit-input" type="text">
+                    <input #choice class ="edit-input" value = {{c.value}} type = "text" (keyup.enter) = "updateChoice(choice.value, i)" (blur) = "updateChoice(choice.value, i)">
                   <button class = "correct-button"  mat-icon-button (click) = "toggleChoice(i)">
                     <mat-icon class = "correct-icon-off" *ngIf = "!c.isCorrect">check_circle</mat-icon>
                     <mat-icon class = "correct-icon-on" *ngIf = "c.isCorrect">check_circle</mat-icon>
                   </button>                  
                 </p>
             </form>
-            <button class = "add-button"  mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
+            <button class = "add-button"  *ngIf = "editing" mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
             <p class = "question-answer" *ngIf = "editing">Answer: <input type = "text" *ngIf = "editing && !hasChoices"></p>
           </div>
         </mat-expansion-panel>
