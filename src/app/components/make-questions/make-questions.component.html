@@ -3,7 +3,7 @@
 </div>
 <div class = "questions-container">
     <mat-accordion class = "question-cards" *ngFor = "let q of questions;">
-        <app-question-card [questionCard]="q"></app-question-card>
+        <app-question-card [questionCard]="q" (deleteQuestion) = "deleteQuestion($event)"></app-question-card>
     </mat-accordion>
     <button class = "add-button"  mat-icon-button color = "accent" (click) = "addQuestion()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
 </div>

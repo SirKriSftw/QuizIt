@@ -26,4 +26,11 @@ export class MakeQuestionsComponent implements OnInit {
     this.questions.push({id: this.id, question:"", choices: [], answer: ""});
     console.log(this.questions)
   }
+
+  deleteQuestion(id:any)
+  {
+    let index = this.questions.indexOf(this.questions.find((q: { id: any; }) => q.id == id));
+    this.questions.splice(index, 1);
+    console.log(id);
+  }
 }

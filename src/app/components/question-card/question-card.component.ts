@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-question-card',
@@ -8,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class QuestionCardComponent implements OnInit {
 
   @Input() questionCard:any;
+  @Output() deleteQuestion = new EventEmitter();
+
   editing:boolean = true;
   hasChoices:boolean = false;
   choiceCount:number = 0;
   answers:any = [];
+  holdTimer: any;
 
   constructor() { }
 
@@ -24,6 +27,27 @@ export class QuestionCardComponent implements OnInit {
   {
     event?.preventDefault();
     this.editing = !this.editing;
+  }
+
+  mousedown(id:any)
+  {
+    this.holdTimer = setTimeout(
+      () => 
+      {
+        this.holdTimer = null;
+        this.deleteQuestion.emit(id);
+        console.log("Long pressed");
+      }, 2000
+    );
+  }
+
+  mouseup()
+  {
+    if (this.holdTimer > 0)
+    {
+      clearTimeout(this.holdTimer);
+      this.holdTimer = null;
+    }
   }
 
   updateQuestion(value:any)

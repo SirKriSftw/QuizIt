@@ -30,10 +30,14 @@
 {
     justify-content: left;
     display:block;
-    
 }
 
 .remove-icon
+{
+    color:red;
+}
+
+.delete-icon
 {
     color:red;
 }
@@ -53,4 +57,19 @@
     margin-top: -50px;
     margin-left: 75px;
     margin-bottom: 10px;
+}
+
+.edit-title
+{
+    display: inline-block;
+}
+
+.edit-title-input
+{
+    float:left;
+}
+
+.delete-button
+{
+    float:right;
 }

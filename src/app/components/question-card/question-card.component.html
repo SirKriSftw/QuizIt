@@ -4,8 +4,9 @@
             <mat-panel-title *ngIf = "!editing">             
               {{questionCard.question}}
             </mat-panel-title>
-            <mat-panel-title *ngIf = "editing" (keydown.Space)="$event.stopPropagation()">      
-              <input #question  value = {{questionCard.question}} type = "text" (keyup.enter) = "updateQuestion(question.value)" (blur) = "updateQuestion(question.value)">
+            <mat-panel-title class = "edit-title" *ngIf = "editing" (keydown.Space)="$event.stopPropagation()">      
+              <input #question  class = "edit-title-input" value = {{questionCard.question}} type = "text" (keyup.enter) = "updateQuestion(question.value)" (blur) = "updateQuestion(question.value)">
+              <button class = "delete-button" mat-button (mousedown) = "mousedown(questionCard.id)" (mouseup) = "mouseup()" (mouseleave) = "mouseup()"><mat-icon class = "delete-icon">delete</mat-icon></button>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class = "question-inside">
