@@ -6,7 +6,7 @@
             </mat-panel-title>
             <mat-panel-title class = "edit-title" *ngIf = "editing" (keydown.Space)="$event.stopPropagation()">      
               <input #question  class = "edit-title-input" value = {{questionCard.question}} type = "text" (keyup.enter) = "updateQuestion(question.value)" (blur) = "updateQuestion(question.value)">
-              <button class = "delete-button" mat-button (mousedown) = "mousedown(questionCard.id)" (mouseup) = "mouseup()" (mouseleave) = "mouseup()"><mat-icon class = "delete-icon">delete</mat-icon></button>
+              <button class = "delete-button" mat-button matTooltip = "Hold to delete question" (mousedown) = "mousedown(questionCard.id)" (mouseup) = "mouseup()" (mouseleave) = "mouseup()"><mat-icon class = "delete-icon">delete</mat-icon></button>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class = "question-inside">
@@ -22,14 +22,14 @@
             
             <form class = "edit-form" *ngIf = "editing">
                 <p class = "edit-item" *ngFor = "let c of questionCard.choices; index as i">
-                  <button class = "remove-button"  mat-icon-button (click) = "removeChoice(i)"><mat-icon class = "remove-icon">remove_circle</mat-icon></button>
+                  <button class = "remove-button"  mat-icon-button (click) = "removeChoice(i)"><mat-icon matTooltip = "Remove choice" class = "remove-icon">remove_circle</mat-icon></button>
                     <input #choice class ="edit-input" value = {{c.value}} type = "text" (keyup.enter) = "updateChoice(choice.value, i)" (blur) = "updateChoice(choice.value, i)">
-                  <button class = "correct-button"  mat-icon-button (click) = "toggleChoice(i)">
+                  <button class = "correct-button"  mat-icon-button matTooltip = "Toggle correctness of choice" (click) = "toggleChoice(i)">
                     <mat-icon class = "correct-icon-off" *ngIf = "!c.isCorrect">check_circle</mat-icon>
                     <mat-icon class = "correct-icon-on" *ngIf = "c.isCorrect">check_circle</mat-icon>
                   </button>                  
                 </p>
-                <button class = "add-button"  mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon class = "add-icon">add_circle</mat-icon></button>
+                <button class = "add-button"  mat-icon-button color = "accent" (click) = "addChoice()"><mat-icon matTooltip = "Add choice" class = "add-icon">add_circle</mat-icon></button>
                 <p class = "question-answer" >Answer: <input #answer type = "text" value = {{questionCard.answer}} *ngIf = "!hasChoices" (keyup.enter) = "updateAnswer(answer.value)" (blur) = "updateAnswer(answer.value)"></p>
             </form>
            

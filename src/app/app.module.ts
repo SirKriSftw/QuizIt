@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Components
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ import { QuestionCardComponent } from './components/question-card/question-card.
     ReactiveFormsModule,
     FormsModule,
     MatExpansionModule,
+    MatTooltipModule,
     BrowserAnimationsModule
   ],
   providers: [],

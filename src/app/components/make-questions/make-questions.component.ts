@@ -20,6 +20,11 @@ export class MakeQuestionsComponent implements OnInit {
     this.test = this.route.snapshot.params['test'];
   }
 
+  saveQuiz()
+  {
+
+  }
+  
   addQuestion()
   {
     this.id = this.id + 1;

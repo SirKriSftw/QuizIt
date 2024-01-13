@@ -1,11 +1,10 @@
 .name-container
 {
     /*border: 3px solid green;*/
-    text-align: center;
-    justify-content: center;
-    padding-top: 20px;
-    display:flex
-
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 10px;
+    display:flex;
 }
 
 .test-name
@@ -13,6 +12,16 @@
     font-size: xx-large;
     font-family: sans-serif;
     letter-spacing: 2px;
+}
+
+.save-button
+{
+    margin-left: auto;
+}
+
+.save-icon
+{
+    color: lime;
 }
 
 .questions-container
